@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <link rel="stylesheet" href="scss/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script defer src="js/script.js"></script>
+  <title>CRM</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <img src="assets/img/logo.png" alt="лого" class="header__img">
+      <form class="header__form" action="#">
+        <input type="text" class="header__input" placeholder="Введите запрос">
+      </form>
+    </div>
+  </header>
+  <main>
+    <section class="main">
+      <div class="container">
+        <div class="main__container">
+          <h2 class="main__title">
+            Клиенты
+          </h2>
+          <table class="table main__table">
+            <thead class="main__thead">
+              <tr class="main__thead__tr">
+                <th class="main__thead__th-1">
+                  <span class="main__table__id arrow-top">ID</span>
+                </th>
+                <th class="main__thead__th-2">
+                  <span class="main__table__fio">Фамилия Имя Отчество</span>
+                </th>
+                <th class="main__thead__th-3">
+                  <span class="main__table__create">Дата и время создания</span>
+                </th>
+                <th class="main__thead__th-4">
+                  <span class="main__table__update">Последние изменения</span>
+                </th>
+                <th class="main__thead__th-5">Контакты</th>
+                <th class="main__thead__th-6">Действия</th>
+              </tr>
+            </thead>
+            <tbody class="main__tbody">
+
+            </tbody>
+          </table>
+          <button class="main__client__btn">
+            <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z"
+                fill="#000000" />
+            </svg>
+            <span class="main__client__span">Добавить клиента</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="add d-none">
+    <div class="add__container">
+      <div class="add__top">
+        <h4 class="add__title">
+          Новый клиент
+        </h4>
+        <button class="add__close">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M16.2332 1.73333L15.2665 0.766664L8.49985 7.53336L1.73318 0.766696L0.766515 1.73336L7.53318 8.50003L0.766542 15.2667L1.73321 16.2333L8.49985 9.46669L15.2665 16.2334L16.2332 15.2667L9.46651 8.50003L16.2332 1.73333Z"
+              fill="#B0B0B0" />
+          </svg>
+        </button>
+      </div>
+      <form action="#" class="add__form">
+        <div class="add__visible-block">
+          <input id="addInputName" class="add__visible__input" type="text" name="surname" required>
+          <label class="add__visible-placeholder">Фамилия<span class="add__visible-span">*</span></label>
+        </div>
+        <div class="add__visible-block">
+          <input id="addInputSurname" class="add__visible__input" type="text" name="name" required>
+          <label class="add__visible-placeholder">Имя<span class="add__visible-span">*</span></label>
+        </div>
+        <div class="add__visible-block">
+          <input id="addInputLastName" class="add__visible__input" type="text" name="lastname" required>
+          <label class="add__visible-placeholder">Отчество</label>
+        </div>
+        <div class="add__contact">
+          <div data-add-1 data-add="1" class="add__contact__row d-none">
+            <select data-add-select-1 class="add__contact__select-1" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-1 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-2 data-add="2" class="add__contact__row d-none">
+            <select data-add-select-2 class="add__contact__select-2" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-2 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-3 data-add="3" class="add__contact__row d-none">
+            <select data-add-select-3 class="add__contact__select-3" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-3 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-4 data-add="4" class="add__contact__row d-none">
+            <select data-add-select-4 class="add__contact__select-4" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-4 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-5 data-add="5" class="add__contact__row d-none">
+            <select data-add-select-5 class="add__contact__select-5" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-5 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-6 data-add="6" class="add__contact__row d-none">
+            <select data-add-select-6 class="add__contact__select-6" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-6 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-7 data-add="7" class="add__contact__row d-none">
+            <select data-add-select-7 class="add__contact__select-7" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-7 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-8 data-add="8" class="add__contact__row d-none">
+            <select data-add-select-8 class="add__contact__select-8" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-8 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-9 data-add="9" class="add__contact__row d-none">
+            <select data-add-select-9 class="add__contact__select-9" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-9 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-add-10 data-add="10" class="add__contact__row d-none">
+            <select data-add-select-10 class="add__contact__select-10" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-add-input-10 type="text" class="add__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="add__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <button class="add_contact-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_224_8628)">
+                <path
+                  d="M7.99998 4.66659C7.63331 4.66659 7.33331 4.96659 7.33331 5.33325V7.33325H5.33331C4.96665 7.33325 4.66665 7.63325 4.66665 7.99992C4.66665 8.36659 4.96665 8.66659 5.33331 8.66659H7.33331V10.6666C7.33331 11.0333 7.63331 11.3333 7.99998 11.3333C8.36665 11.3333 8.66665 11.0333 8.66665 10.6666V8.66659H10.6666C11.0333 8.66659 11.3333 8.36659 11.3333 7.99992C11.3333 7.63325 11.0333 7.33325 10.6666 7.33325H8.66665V5.33325C8.66665 4.96659 8.36665 4.66659 7.99998 4.66659ZM7.99998 1.33325C4.31998 1.33325 1.33331 4.31992 1.33331 7.99992C1.33331 11.6799 4.31998 14.6666 7.99998 14.6666C11.68 14.6666 14.6666 11.6799 14.6666 7.99992C14.6666 4.31992 11.68 1.33325 7.99998 1.33325ZM7.99998 13.3333C5.05998 13.3333 2.66665 10.9399 2.66665 7.99992C2.66665 5.05992 5.05998 2.66659 7.99998 2.66659C10.94 2.66659 13.3333 5.05992 13.3333 7.99992C13.3333 10.9399 10.94 13.3333 7.99998 13.3333Z"
+                  fill="#000000" />
+              </g>
+              <defs>
+                <clipPath id="clip0_224_8628">
+                  <rect width="16" height="16" />
+                </clipPath>
+              </defs>
+            </svg>
+            <span class="add__contact-span">Добавить контакт</span>
+          </button>
+        </div>
+        <div class="add__invalid d-none">Ошибка Ошибка</div>
+        <button class="add__save-btn">Сохранить</button>
+        <button class="add__cancel-btn">Отмена</button>
+      </form>
+    </div>
+  </div>
+  <div class="change d-none">
+    <div class="change__container">
+      <div class="change__top">
+        <h4 class="change__title">
+          Изменить данные
+        </h4>
+        <span class="change__id">ID: 123458</span>
+        <button class="change__close">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M16.2332 1.73333L15.2665 0.766664L8.49985 7.53336L1.73318 0.766696L0.766515 1.73336L7.53318 8.50003L0.766542 15.2667L1.73321 16.2333L8.49985 9.46669L15.2665 16.2334L16.2332 15.2667L9.46651 8.50003L16.2332 1.73333Z"
+              fill="#B0B0B0" />
+          </svg>
+        </button>
+      </div>
+      <form action="#" class="change__form">
+        <div class="change__visible-block">
+          <input id="changeInputSurname" class="change__visible__input" type="text" name="surname" required>
+          <label class="change__visible-placeholder">Фамилия<span class="add__visible-span">*</span></label>
+        </div>
+        <div class="change__visible-block">
+          <input id="changeInputName" class="change__visible__input" type="text" name="name" required>
+          <label class="change__visible-placeholder">Имя<span class="add__visible-span">*</span></label>
+        </div>
+        <div class="change__visible-block">
+          <input id="changeInputLastName" class="change__visible__input" type="text" name="lastname" required>
+          <label class="change__visible-placeholder">Отчество</label>
+        </div>
+        <div class="change__contact">
+          <div data-change-1 data-change="1" class="change__contact__row d-none">
+            <select data-change-select-1 class="change__contact__select-1" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-1 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-2 data-change="2" class="change__contact__row d-none">
+            <select data-change-select-2 class="change__contact__select-2" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-2 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-3 data-change="3" class="change__contact__row d-none">
+            <select data-change-select-3 class="change__contact__select-3" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-3 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-4 data-change="4" class="change__contact__row d-none">
+            <select data-change-select-4 class="change__contact__select-4" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-4 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-5 data-change="5" class="change__contact__row d-none">
+            <select data-change-select-5 class="change__contact__select-5" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-5 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-6 data-change="6" class="change__contact__row d-none">
+            <select data-change-select-6 class="change__contact__select-6" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-6 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-7 data-change="7" class="change__contact__row d-none">
+            <select data-change-select-7 class="change__contact__select-7" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-7 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-8 data-change="8" class="change__contact__row d-none">
+            <select data-change-select-8 class="change__contact__select-8" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-8 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-9 data-change="9" class="change__contact__row d-none">
+            <select data-change-select-9 class="change__contact__select-9" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-9 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <div data-change-10 data-change="10" class="change__contact__row d-none">
+            <select data-change-select-10 class="change__contact__select-10" name="">
+              <option>Телефон</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>VK</option>
+              <option>Другое</option>
+            </select>
+            <input data-change-input-10 type="text" class="change__contact__input" placeholder="Введите данные контакта"
+              required>
+            <button class="change__contact__cancel">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_224_6297)">
+                  <path
+                    d="M8 2C4.682 2 2 4.682 2 8C2 11.318 4.682 14 8 14C11.318 14 14 11.318 14 8C14 4.682 11.318 2 8 2ZM8 12.8C5.354 12.8 3.2 10.646 3.2 8C3.2 5.354 5.354 3.2 8 3.2C10.646 3.2 12.8 5.354 12.8 8C12.8 10.646 10.646 12.8 8 12.8ZM10.154 5L8 7.154L5.846 5L5 5.846L7.154 8L5 10.154L5.846 11L8 8.846L10.154 11L11 10.154L8.846 8L11 5.846L10.154 5Z"
+                    fill="#B0B0B0" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_224_6297">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="marker" tabindex="0">
+                <div class="popup">Удалить контакт</div>
+              </div>
+            </button>
+          </div>
+          <button class="change__contact-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_224_8628)">
+                <path
+                  d="M7.99998 4.66659C7.63331 4.66659 7.33331 4.96659 7.33331 5.33325V7.33325H5.33331C4.96665 7.33325 4.66665 7.63325 4.66665 7.99992C4.66665 8.36659 4.96665 8.66659 5.33331 8.66659H7.33331V10.6666C7.33331 11.0333 7.63331 11.3333 7.99998 11.3333C8.36665 11.3333 8.66665 11.0333 8.66665 10.6666V8.66659H10.6666C11.0333 8.66659 11.3333 8.36659 11.3333 7.99992C11.3333 7.63325 11.0333 7.33325 10.6666 7.33325H8.66665V5.33325C8.66665 4.96659 8.36665 4.66659 7.99998 4.66659ZM7.99998 1.33325C4.31998 1.33325 1.33331 4.31992 1.33331 7.99992C1.33331 11.6799 4.31998 14.6666 7.99998 14.6666C11.68 14.6666 14.6666 11.6799 14.6666 7.99992C14.6666 4.31992 11.68 1.33325 7.99998 1.33325ZM7.99998 13.3333C5.05998 13.3333 2.66665 10.9399 2.66665 7.99992C2.66665 5.05992 5.05998 2.66659 7.99998 2.66659C10.94 2.66659 13.3333 5.05992 13.3333 7.99992C13.3333 10.9399 10.94 13.3333 7.99998 13.3333Z"
+                  fill="#000000" />
+              </g>
+              <defs>
+                <clipPath id="clip0_224_8628">
+                  <rect width="16" height="16" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            <span class="change__contact-span">Добавить контакт</span>
+          </button>
+        </div>
+        <div class="change__invalid d-none">Ошибка Ошибка</div>
+        <button class="change__save-btn">Сохранить</button>
+        <button class="change__cancel-btn">Удалить клиента</button>
+      </form>
+    </div>
+  </div>
+  <div class="delete d-none">
+    <div class="delete__modal">
+      <div class="delete__container">
+        <h4 class="delete__title">Удалить клиента</h4>
+        <button class="delete__close">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M16.2332 1.73333L15.2665 0.766664L8.49985 7.53336L1.73318 0.766696L0.766515 1.73336L7.53318 8.50003L0.766542 15.2667L1.73321 16.2333L8.49985 9.46669L15.2665 16.2334L16.2332 15.2667L9.46651 8.50003L16.2332 1.73333Z"
+              fill="#B0B0B0" />
+          </svg>
+        </button>
+        <p class="delete__subtitle">
+          Вы действительно хотите удалить данного клиента?
+        </p>
+        <button class="delete__btn">
+          Удалить
+        </button>
+        <button class="delete__cancel">
+          Отмена
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

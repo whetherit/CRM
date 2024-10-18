@@ -1,0 +1,48 @@
+@import "fonts";
+@import "global";
+@import "vars";
+
+.header {
+  padding: 20px;
+  box-shadow: 0px 9.03012px 27.0904px rgba(176, 190, 197, 0.32), 0px 3.38629px 5.64383px rgba(176, 190, 197, 0.32);
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 630px) {
+      justify-content: center;
+    }
+  }
+
+  &__img {
+    margin-right: 53px;
+
+    @media (max-width: 630px) {
+      margin-right: 0;
+      align-self: center;
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    width: 581px;
+
+    @media (max-width: 630px) {
+      display: none;
+    }
+  }
+
+  &__input {
+    padding: 13px 16px;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    width: 100%;
+
+    &::placeholder {
+      font-size: 14px;
+      line-height: 19px;
+      color: $textGrey;
+    }
+  }
+}

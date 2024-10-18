@@ -1,0 +1,221 @@
+@import "vars";
+
+.add {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+
+  &__container {
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    padding: 24px 0 29px 0;
+    background-color: #fff;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 577px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    @media (max-width: 1400px) {
+      left: 30%;
+    }
+
+    @media (max-width: 900px) {
+      left: 20%;
+    }
+
+    @media (max-width: 700px) {
+      left: 10%;
+    }
+
+    @media (max-width: 400px) {
+      left: 5%;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    margin: 0 238px 0 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: $textPrimary;
+
+
+    @media (max-width: 500px) {
+      margin-right: 115px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__visible-block {
+    position: relative;
+  }
+
+  &__visible__input {
+    border: none;
+    border-bottom: 1px solid #C8C5D1;
+    width: 390px;
+    margin: 0 30px;
+
+    @media (max-width: 500px) {
+      width: 270px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: $textGrey;
+      padding-bottom: 4px;
+    }
+  }
+
+  &__visible-placeholder {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: $textGrey;
+    position: absolute;
+    left: 31px;
+    top: 1px;
+    pointer-events: none;
+    transform-origin: left;
+    transition: all .3s ease-in-out;
+  }
+
+  &__visible-span {
+    color: $firmPrimary;
+  }
+
+  &__visible__input:focus + &__visible-placeholder, &__visible__input:not(:focus):valid + &__visible-placeholder{
+    top: -15px;
+    transform: scale(.85);
+  }
+
+  &__contact {
+    margin-top: 26px;
+    padding: 25px 30px;
+    background-color: rgba(200, 197, 209, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
+    width: 100%;
+    overflow: visible;
+
+    &__row {
+      display: flex;
+      overflow: visible;
+    }
+
+    &__input {
+      height: 46px;
+      border: none;
+      border-top: 2px solid #C8C5D1;
+      border-bottom: 2px solid #C8C5D1;
+      padding: 8px 12px;
+
+      &::placeholder {
+        font-size: 14px;
+        line-height: 19px;
+        color: $textGrey;
+      }
+    }
+
+    &__cancel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 46px;
+      border: 2px solid #C8C5D1;
+      padding: 10px 6px;
+    }
+    &-btn {
+      display: flex;
+      align-items: start;
+      transition: all .3s ease-in-out;
+    }
+
+    &-span {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 19px;
+      color: $textPrimary;
+      margin-top: 3px;
+      transition: all .3s ease-in-out;
+    }
+  }
+
+  &__invalid {
+    text-align: center;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    color: #F06A4D;
+    margin-bottom: 9px;
+    max-width: 255px;
+  }
+
+  &__save-btn {
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #fff;
+    padding: 12.5px 35px;
+    background-color: $firmPrimary;
+    max-width: 147px;
+    margin-bottom: 5px;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      background-color: #B89EFF;
+    }
+
+    &:active {
+      background-color: #8052FF;
+    }
+
+    &:disabled {
+      background-color: #C8C5D1;
+    }
+  }
+
+  &__cancel-btn {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $textPrimary;
+    text-decoration: underline;
+  }
+}
+
+.add_contact-btn:hover .add__contact-span {
+  color: $firmPrimary;
+}
+
+

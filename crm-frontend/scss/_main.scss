@@ -1,0 +1,196 @@
+@import 'fonts';
+@import 'global';
+@import 'vars';
+
+.main {
+	padding: 40px 0 252px 0;
+	background-color: #e5e5e5;
+
+	@media (max-width: 950px) {
+		overflow-x: auto;
+	}
+
+	&__conatiner {
+		@media (max-width: 630px) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	&__title {
+		margin: 0 0 25px 0;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 33px;
+		color: $textPrimary;
+	}
+
+	&__table {
+		margin-bottom: 40px;
+
+		@media (max-width: 950px) {
+			width: 1100px;
+		}
+	}
+
+	&__table__id {
+		background-image: url('../assets/img/arrow-bottom.svg');
+		background-repeat: no-repeat;
+		background-position: right center;
+		padding-right: 15px;
+	}
+
+	&__table__fio {
+		background-image: url('../assets/img/fio-bottom.svg');
+		background-repeat: no-repeat;
+		background-position: right center;
+		padding-right: 30px;
+	}
+
+	&__table__create {
+		background-image: url('../assets/img/arrow-bottom.svg');
+		background-repeat: no-repeat;
+		background-position: right center;
+		padding-right: 15px;
+	}
+
+	&__table__update {
+		background-image: url('../assets/img/arrow-bottom.svg');
+		background-repeat: no-repeat;
+		background-position: right center;
+		padding-right: 15px;
+	}
+
+	&__thead__th-1,
+	&__thead__th-2,
+	&__thead__th-3,
+	&__thead__th-4,
+	&__thead__th-5,
+	&__thead__th-6 {
+		border-bottom: none;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+		color: $textGrey;
+		cursor: pointer;
+		-ms-user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+
+	&__table__id {
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+		color: $firmPrimary;
+	}
+
+	&__tbody__tr {
+		height: 60px;
+		background-color: #fff;
+		border-radius: 0;
+		border-bottom: 1px solid rgba(200, 197, 209, 0.5);
+		align-items: center;
+	}
+
+	&__tbody__th-1 {
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+		color: $textGrey;
+	}
+
+	&__tbody__th-2,
+	&__tbody__th-3,
+	&__tbody__th-4,
+	&__tbody__th-6 {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 19px;
+		color: $textPrimary;
+		vertical-align: top;
+	}
+
+	&__table__span {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 19px;
+		color: $textGrey;
+	}
+
+	&__table__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		max-width: 120px;
+	}
+
+	&__table__item {
+		&:not(:last-child) {
+			margin-right: 7px;
+
+			@media (max-width: 1040px) {
+				margin-right: 4px;
+			}
+
+			@media (max-width: 950px) {
+				margin-right: 7px;
+			}
+		}
+	}
+
+	&__table__change {
+		margin-right: 30px;
+	}
+
+	&__table__change:hover &__change__span {
+		color: $firmPrimary;
+	}
+
+	&__table__delete:hover &__delete__span {
+		color: #f06a4d;
+	}
+
+	&__change__span {
+		transition: all 0.2s ease-in-out;
+	}
+
+	&__delete__span {
+		transition: all 0.2s ease-in-out;
+	}
+
+	&__client__btn {
+		margin: 0 auto;
+		padding: 12.5px 26px;
+		display: flex;
+		align-items: center;
+		border: 1px solid #131212;
+
+		@media (max-width: 500px) {
+			position: fixed;
+			margin-left: 30%;
+		}
+
+		@media (max-width: 400px) {
+			margin-left: 15%;
+		}
+	}
+
+	&__client__span {
+		margin-left: 10px;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 19px;
+		color: $firmPrimary;
+	}
+}
+
+.arrow-top {
+	background-image: url('../assets/img/arrow-top.svg');
+}
+
+.fio-top {
+	background-image: url('../assets/img/fio-top.svg');
+}
